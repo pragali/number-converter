@@ -18,6 +18,41 @@ public class BinaryConverterSvc extends NumberConverterSvc{
                 toDecimal(binary, i+1);
     }
 
+    public boolean isBinaryOrNot(int number)
+    {
+        boolean isBinary = true;
+
+        int copyOfNumber = number;
+
+        while (copyOfNumber != 0)
+        {
+            int temp = copyOfNumber%10;   //Gives last digit of the number
+
+            if(temp > 1)
+            {
+                isBinary = false;
+                break;
+            }
+            else
+            {
+                copyOfNumber = copyOfNumber/10;    //Removes last digit from the number
+            }
+        }
+
+        if (isBinary)
+        {
+            System.out.println(number+" is a binary number");
+        }
+        else
+        {
+            System.out.println(number+" is not a binary number");
+        }
+
+        return isBinary;
+    }
+
+
+
     // Driver code
     public static void main(String []args)
     {

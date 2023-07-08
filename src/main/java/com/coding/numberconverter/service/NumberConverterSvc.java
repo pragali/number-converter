@@ -45,6 +45,8 @@ public class NumberConverterSvc {
             int s1 = NumValue(str.charAt(i));
             if (i+1 <str.length()) {
                 int s2 = NumValue(str.charAt(i+1));
+                if(s1<0 || s2<0)
+                    throw new IllegalArgumentException("invalid parameter passed");
                 if (s1 >= s2) {
                     sum = sum + s1;
                 }
