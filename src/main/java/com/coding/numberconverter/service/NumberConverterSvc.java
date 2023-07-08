@@ -22,26 +22,43 @@ public class NumberConverterSvc {
     }
 
 
-    public  final RomanNumeral integerToRoman2(int number) {
-        String roman ="";
-        int i = getFloorIndex(number);
-        if (number == values[i]) {
-            roman+= romanLiterals[i];
-        }
-
-        roman=romanLiterals[i] + integerToRoman2(number - values[i]);
-        RomanNumeral converter = map(roman, number);
-
-        return converter;
+    int NumValue(char rom){
+        if (rom == 'I')
+            return 1;
+        if (rom == 'V')
+            return 5;
+        if (rom == 'X')
+            return 10;
+        if (rom == 'L')
+            return 50;
+        if (rom == 'C')
+            return 100;
+        if (rom == 'D')
+            return 500;
+        if (rom == 'M')
+            return 1000;
+        return -1;
     }
-
-    private static int getFloorIndex(int number) {
-        for (int i = 0; i < values.length; i++) {
-            while (number >= values[i]) {
-                return i;
+    public int romanToInt(String str) {
+        int sum = 0;
+        for (int i=0; i<str.length(); i++) {
+            int s1 = NumValue(str.charAt(i));
+            if (i+1 <str.length()) {
+                int s2 = NumValue(str.charAt(i+1));
+                if (s1 >= s2) {
+                    sum = sum + s1;
+                }
+                else {
+                    sum = sum - s1;
+                }
+            }
+            else {
+                sum = sum + s1;
             }
         }
-        return -1;
+        if(sum<0)
+            throw new IllegalArgumentException("check parameter passed");
+        return sum;
     }
 
     private RomanNumeral map(String result,int num){
