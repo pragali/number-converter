@@ -86,7 +86,7 @@ public class WordConverterSvc extends NumberConverterSvc{
 
     /*public static void main(String[] args)
     {
-        System.out.println(convert_to_words("0000".toCharArray()));
+        System.out.println(convert_to_words("1000".toCharArray()));
     }*/
 
 }

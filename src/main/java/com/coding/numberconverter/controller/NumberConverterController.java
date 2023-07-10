@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.coding.numberconverter.service.NumberConverterSvc;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("convert")
 public class NumberConverterController {
 

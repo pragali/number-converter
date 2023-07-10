@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BinaryConverterSvc extends NumberConverterSvc{
 
-    public static int toDecimal(String binary,int i)
+    public int toDecimal(String binary,int i)
     {
         // If we reached last character
         int n = binary.length();
@@ -54,11 +54,5 @@ public class BinaryConverterSvc extends NumberConverterSvc{
 
 
     // Driver code
-    public static void main(String []args)
-    {
-        String binary = "1010";
-        int i=0;
-        System.out.println(toDecimal(binary,i));
 
-    }
 }
